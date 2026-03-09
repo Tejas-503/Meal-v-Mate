@@ -34,7 +34,7 @@ export default function StudentLayout() {
             <UtensilsCrossed className="w-4 h-4 text-white" />
           </div>
           <div>
-            <span className="font-display font-bold text-lg text-white">Food<span className="text-brand-bright">Hub</span></span>
+            <span className="font-display font-bold text-lg text-white">Meal<span className="text-brand-bright">Mate</span></span>
             <p className="text-xs text-gray-500">Student Portal</p>
           </div>
         </div>
@@ -102,7 +102,7 @@ export default function StudentLayout() {
           <button onClick={() => setSidebarOpen(true)} className="text-gray-400 hover:text-white p-2 rounded-lg hover:bg-app-border transition-colors">
             <Menu className="w-5 h-5" />
           </button>
-          <span className="font-display font-bold text-white">Food<span className="text-brand-bright">Hub</span></span>
+          <span className="font-display font-bold text-white">Meal<span className="text-brand-bright">Mate</span></span>
           <button onClick={() => navigate("/student/menu")} className="relative text-gray-400 hover:text-white p-2 rounded-lg hover:bg-app-border transition-colors">
             <ShoppingCart className="w-5 h-5" />
             {totalItems > 0 && (

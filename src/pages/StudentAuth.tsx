@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { UtensilsCrossed, Mail, Lock, User, ArrowLeft, Eye, EyeOff, KeyRound } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import { useAuth } from "@/hooks/useAuth";
+import { useEffect } from "react";
 import { toast } from "sonner";
 import type { AuthUser } from "@/types";
 
@@ -20,7 +21,7 @@ function mapUser(user: any): AuthUser {
 
 export default function StudentAuth() {
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { login, suppressAutoLogin, allowAutoLogin } = useAuth();
   const [tab, setTab] = useState<Tab>("login");
   const [loading, setLoading] = useState(false);
   const [showPass, setShowPass] = useState(false);
@@ -53,15 +54,23 @@ export default function StudentAuth() {
     navigate("/student/dashboard");
   };
 
+  // Suppress auto-login from SIGNED_IN event during registration
+  useEffect(() => {
+    return () => { allowAutoLogin(); };
+  }, []);
+
   const handleSendOtp = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!regName.trim()) { toast.error("Please enter your name"); return; }
     setLoading(true);
+    // Suppress so the SIGNED_IN fired by signInWithOtp doesn't log user in prematurely
+    suppressAutoLogin();
     const { error } = await supabase.auth.signInWithOtp({
       email: regEmail,
       options: { shouldCreateUser: true },
     });
     if (error) {
+      allowAutoLogin();
       toast.error(error.message);
       setLoading(false);
       return;
@@ -74,6 +83,7 @@ export default function StudentAuth() {
   const handleVerifyOtp = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    // Keep suppressed — verifyOtp also fires SIGNED_IN, password not set yet
     const { error } = await supabase.auth.verifyOtp({
       email: regEmail,
       token: regOtp,
@@ -84,7 +94,7 @@ export default function StudentAuth() {
       setLoading(false);
       return;
     }
-    toast.success("OTP verified!");
+    toast.success("OTP verified! Now set your password.");
     setRegStep("password");
     setLoading(false);
   };
@@ -102,8 +112,10 @@ export default function StudentAuth() {
       setLoading(false);
       return;
     }
+    // Allow auto-login again then manually log in
+    allowAutoLogin();
     login(mapUser(data.user));
-    toast.success(`Welcome to FoodHub, ${regName}!`);
+    toast.success(`Welcome to MealMate, ${regName}!`);
     navigate("/student/dashboard");
   };
 
@@ -125,7 +137,7 @@ export default function StudentAuth() {
               <UtensilsCrossed className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h1 className="font-display font-bold text-xl text-white">FoodHub</h1>
+              <h1 className="font-display font-bold text-xl text-white">Meal<span className="text-brand-bright">Mate</span></h1>
               <p className="text-gray-500 text-xs">Student Portal</p>
             </div>
           </div>

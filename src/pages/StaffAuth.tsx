@@ -4,7 +4,7 @@ import { UtensilsCrossed, Mail, Lock, ShieldCheck, ArrowLeft, Eye, EyeOff } from
 import { useAuth } from "@/hooks/useAuth";
 import { toast } from "sonner";
 
-const STAFF_EMAIL = "staff@foodhub.com";
+const STAFF_EMAIL = "staff@mealmate.com";
 const STAFF_PASSWORD = "Staff@2024";
 
 export default function StaffAuth() {
@@ -52,7 +52,7 @@ export default function StaffAuth() {
               <UtensilsCrossed className="w-5 h-5 text-gray-200" />
             </div>
             <div>
-              <h1 className="font-display font-bold text-xl text-white">FoodHub</h1>
+              <h1 className="font-display font-bold text-xl text-white">Meal<span className="text-brand-bright">Mate</span></h1>
               <p className="text-gray-500 text-xs">Staff Portal</p>
             </div>
           </div>
@@ -72,7 +72,7 @@ export default function StaffAuth() {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="staff@foodhub.com"
+                  placeholder="staff@mealmate.com"
                   className="input-dark pl-10"
                   required
                 />
@@ -106,7 +106,7 @@ export default function StaffAuth() {
 
           <div className="mt-6 p-4 bg-app-card-2 rounded-xl border border-app-border">
             <p className="text-gray-500 text-xs mb-1 font-medium">Demo Credentials</p>
-            <p className="text-gray-400 text-xs">Email: <span className="text-brand-bright">staff@foodhub.com</span></p>
+            <p className="text-gray-400 text-xs">Email: <span className="text-brand-bright">staff@mealmate.com</span></p>
             <p className="text-gray-400 text-xs">Password: <span className="text-brand-bright">Staff@2024</span></p>
           </div>
         </div>

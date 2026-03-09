@@ -21,7 +21,7 @@ export default function Landing() {
             <UtensilsCrossed className="w-5 h-5 text-white" />
           </div>
           <span className="font-display font-bold text-2xl text-white tracking-tight">
-            Food<span className="text-brand-bright">Hub</span>
+            Meal<span className="text-brand-bright">Mate</span>
           </span>
         </div>
         <div className="flex items-center gap-2 bg-green-500/10 border border-green-500/20 rounded-full px-4 py-1.5">
@@ -38,8 +38,8 @@ export default function Landing() {
         </div>
 
         <h1 className="font-display font-black text-6xl md:text-7xl lg:text-8xl text-white leading-none mb-6 tracking-tight">
-          Food
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-light to-brand-bright">Hub</span>
+          Meal
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-light to-brand-bright">Mate</span>
         </h1>
         <p className="text-gray-400 text-xl md:text-2xl max-w-2xl mb-4 leading-relaxed">
           Book seats. Order food. Track everything — all in one place.
@@ -124,7 +124,7 @@ export default function Landing() {
 
       {/* Footer */}
       <footer className="relative z-10 text-center py-6 text-gray-600 text-sm">
-        © 2025 FoodHub · Smart Canteen Management
+        © 2025 MealMate · Smart Canteen Management
       </footer>
     </div>
   );

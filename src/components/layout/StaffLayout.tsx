@@ -33,7 +33,7 @@ export default function StaffLayout() {
             <UtensilsCrossed className="w-4 h-4 text-gray-200" />
           </div>
           <div>
-            <span className="font-display font-bold text-lg text-white">Food<span className="text-brand-bright">Hub</span></span>
+            <span className="font-display font-bold text-lg text-white">Meal<span className="text-brand-bright">Mate</span></span>
             <p className="text-xs text-gray-500">Staff Portal</p>
           </div>
         </div>
@@ -93,7 +93,7 @@ export default function StaffLayout() {
           <button onClick={() => setSidebarOpen(true)} className="text-gray-400 hover:text-white p-2 rounded-lg hover:bg-app-border transition-colors">
             <Menu className="w-5 h-5" />
           </button>
-          <span className="font-display font-bold text-white">Staff Panel</span>
+          <span className="font-display font-bold text-white">Meal<span className="text-brand-bright">Mate</span></span>
           <div className="w-9" />
         </header>
         <main className="flex-1 overflow-y-auto">

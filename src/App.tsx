@@ -48,7 +48,7 @@ function LoadingScreen() {
     <div className="min-h-screen bg-app-bg flex items-center justify-center">
       <div className="flex flex-col items-center gap-4">
         <div className="w-16 h-16 border-4 border-brand/30 border-t-brand rounded-full animate-spin" />
-        <p className="text-gray-400 font-medium">Loading FoodHub...</p>
+        <p className="text-gray-400 font-medium">Loading MealMate...</p>
       </div>
     </div>
   );
